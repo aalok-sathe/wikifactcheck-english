@@ -1,20 +1,20 @@
-# WikiFactCheck-data
+# WikiFactCheck-en
 
 This repository contains the data to accompany 
-'WikiFactCheck: A Large Annotated Corpus of Claims and Cited Evidence Extracted from Wikipedia for Automatic Fact Checking'.
+'WikiFactCheck-en: Automated Fact-Checking of Claims from Wikipedia'.
   
 Contents as follows:
 ```
 .
 │
-├── wikifactcheck_full0.jsonl
-├── wikifactcheck_full1.jsonl
-├── wikifactcheck_full2.jsonl
-├── wikifactcheck_full3.jsonl
-├── wikifactcheck_full4.jsonl
+├── wikifactcheck-en_full0.jsonl
+├── wikifactcheck-en_full1.jsonl
+├── wikifactcheck-en_full2.jsonl
+├── wikifactcheck-en_full3.jsonl
+├── wikifactcheck-en_full4.jsonl
 │
-├── wikifactcheck_test.jsonl
-└── wikifactcheck_train.jsonl
+├── wikifactcheck-en_test.jsonl
+└── wikifactcheck-en_train.jsonl
 ```
 
 As explained in the paper, the annotated portion of the corpus is split into `train` and `test` sets.
