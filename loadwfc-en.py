@@ -13,33 +13,6 @@ PROJECT = 'wikifactcheck-english'
 BASEDIR = '~/.{}'.format(PROJECT)
 REPOURL = 'https://rawcdn.githack.com/{prj}/{prj}/master/'.format(prj=PROJECT)
 
-def download_from_url(url, dst):
-    """
-    @param: url to download file
-    @param: dst place to put the file
-
-    modified version of a gist from the listings of gist.github.com/wy193777
-    """
-    file_size = int(requests.head(url).headers["Content-Length"])
-    if os.path.exists(str(dst)):
-        first_byte = os.path.getsize(str(dst))
-    else:
-        first_byte = 0
-    if first_byte >= file_size:
-        return file_size
-    header = {"Range": "bytes=%s-%s" % (first_byte, file_size)}
-    pbar = tqdm(
-        total=file_size, initial=first_byte,
-        unit='B', unit_scale=True, desc=url.split('/')[-1])
-    req = requests.get(url, headers=header, stream=True)
-    if not isinstance(dst, Path): dst = Path(dst).expanduser()
-    with(dst.open('ab')) as f:
-        for chunk in req.iter_content(chunk_size=1024):
-            if chunk:
-                f.write(chunk)
-                pbar.update(1024)
-    pbar.close()
-
 
 def download(full=True, dest=BASEDIR, force=False):
     '''
